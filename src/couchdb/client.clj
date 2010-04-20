@@ -252,7 +252,7 @@ http://wiki.apache.org/couchdb/HTTP_Bulk_Document_API"
 (defn view-get [server db design-doc view-name & [view-options]]
   (:json (couch-request 
    (str (normalize-url server) db "/_design/" design-doc "/_view/" view-name "?"
-	(url-encode (vals2json view-options))))))
+       (url-encode view-options)))))
 
 (defn view-temp-get [server db view-map & [view-options]]
   (:json (couch-request 
